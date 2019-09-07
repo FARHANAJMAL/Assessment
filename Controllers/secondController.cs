@@ -7,35 +7,37 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Assessment.Controllers
 {
-    public class firstController : Controller
+    public class secondController : Controller
     {
         private ASMTContext ORM = null;
         private ASMTContext _ORM;
 
-        public firstController(ASMTContext _ORM)
+        public secondController(ASMTContext _ORM)
         {
             ORM = _ORM;
         }
+
+
+
 
         public IActionResult Index()
         {
             return View();
         }
         [HttpGet]
-        public IActionResult CreateCategory()
+        public IActionResult CreatePost()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult CreateCategory(Category c)
-          {
-            ORM.Category.Add(c);
+        public IActionResult CreatePost(Post p)
+        {
+            ORM.Post.Add(p);
 
             ORM.SaveChanges();
             return View();
-    }
+        }
 
     }
 }
-
